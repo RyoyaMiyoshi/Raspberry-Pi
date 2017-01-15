@@ -9,9 +9,9 @@ void setup() {
 void loop(){
   sensorvalue = analogRead(sensorPin); // read/store the value from sensor
   
-  for(int  i = 42 ; i >= 0; i--){
-    if(sensorvalue >= 245+10*i && sensorvalue <= 255+10*i){
-       distance = 42-i;
+  for(int  i = 63 ; i >= 0; i--){
+    if(sensorvalue >= 35+10*i && sensorvalue <= 45+10*i){
+       distance = 63-i;
     }
   }
    Serial.println(distance);

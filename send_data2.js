@@ -12,7 +12,6 @@ var sp = new serialport("/dev/ttyACM0", {
 
 var books = ncmb.DataStore("Books");
 
-//while(true){
 sp.on('data', function(data){
 var distance = data;
 var Books = new books({cm:distance});
@@ -20,10 +19,10 @@ var Books = new books({cm:distance});
         Books.set("position",6);
       }else if(distance>=14&&distance<28){
         Books.set("position",7);
-      }else if(distance>=28&&distance<42){
+      }else if(distance>=28&&distance<44){
         Books.set("position",8);
        }
-    if(distance<42){
+    if(distance<44){
       Books.save()
         .then(function(cm){
          console.log(distance);
@@ -33,4 +32,3 @@ var Books = new books({cm:distance});
        }); 
    }
  });
-//}

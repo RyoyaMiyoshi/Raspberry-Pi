@@ -11,18 +11,16 @@ var books = ncmb.DataStore("Books");
 setInterval(function(){
  exec('sudo python3 /home/pi/funhacks/measure.py',function(error,stdout,stderr){
    if(stdout){
-     //var s_distance = stdout.toString();
      var distance = parseInt(stdout,10);
-console.log(distance);
      var Books = new books({cm:distance});
-      if(distance>=0&&distance<14){
+      if(distance>=0&&distance<21){
         Books.set("position",0);
-      }else if(distance>=14&&distance<28){
+      }else if(distance>=21&&distance<42){
         Books.set("position",1);
-      }else if(distance>=28&&distance<42){
+      }else if(distance>=42&&distance<63){
         Books.set("position",2);
        }
-    if(distance<42){
+    if(distance<63){
       Books.save()
         .then(function(cm){
          console.log(distance);
